@@ -1,0 +1,164 @@
+GIT Multiple Remote
+
+- fork simple-landing-page.git dari sandhikagalih 
+$ git clone https://github.com/riczky/simple-landing-page.git
+$ git remote
+$ git remote -v 
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git remote add sandhikagalih https://github.com/sandhikagalih/simple-landing-page.git
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git remote
+origin
+sandhikagalih
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git remote -v
+origin  https://github.com/riczky/simple-landing-page.git (fetch)
+origin  https://github.com/riczky/simple-landing-page.git (push)
+sandhikagalih   https://github.com/sandhikagalih/simple-landing-page.git (fetch)
+sandhikagalih   https://github.com/sandhikagalih/simple-landing-page.git (push)
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ alias graph="git log --all --decorate --oneline --graph"
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ graph
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git remote
+origin
+sandhikagalih
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git fetch sandhikagalih
+From https://github.com/sandhikagalih/simple-landing-page
+ * [new branch]      master     -> sandhikagalih/master
+
+$ git merge sandhikagalih/master 
+
+$ git push -u origin master 
+
+
+
+===============================================================================
+Remote Branch
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git branch features
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git branch
+  features
+* master
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git checkout features
+Switched to branch 'features'
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (features)
+$ git status
+On branch features
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (features)
+$ git commit -am "mengubah tulisan pada testimonial"
+[features 9aa026d] mengubah tulisan pada testimonial
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (features)
+$ git push origin features
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 379 bytes | 189.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'features' on GitHub by visiting:
+remote:      https://github.com/riczky/simple-landing-page/pull/new/features
+remote:
+To https://github.com/riczky/simple-landing-page.git
+ * [new branch]      features -> features
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/simple-landing-page (features)
+$ graph
+* 9aa026d (HEAD -> features, origin/features) mengubah tulisan pada testimonial
+* bd7b908 (sandhikagalih/master, origin/master, origin/HEAD, master) mengubah tulisan brand menjadi sandhika
+* db75944 mengubah warna tombol our work
+* e3a583d mengubah desain tombol our works
+* 5d89fa0 mengubah branding
+* 4f1d42e mengubah tulisan testimonial
+* c60c6b0 mengubah warna tombol menjadi merah
+* b8fd5d8 mengubah warna tombol our work
+*   8fd2c87 Merge pull request #2 from sandhikagalih/testing
+|\
+| * 4eee332 mengubah lagi warna tombol
+| * bbcd70a mengubah warna tombol
+|/
+* e3cd87a testing change
+*   1a79bdc Merge pull request #1 from webprogrammingunpas/features
+|\
+| * e355a65 mengubah tulisan pada testimonial
+|/
+* 5c3d21f mengubah warna tombol
+* 43c1d5f mengubah tulisan gallery
+* 47e44c5 initial commit
+
+$ graph
+$ git merge sandhikagalih/master 
+
+
+
+============================================================================
+Git Ignore
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/coba-git-ignore
+$ git init
+Initialized empty Git repository in C:/Users/rizqi/Desktop/coba-git-ignore/.git/
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/coba-git-ignore (master)
+$ git remote add origin https://github.com/riczky/coba-git-ignore.git
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/coba-git-ignore (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/coba-git-ignore (master)
+$ git add .
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/coba-git-ignore (master)
+$ git commit -m "menambahkan 2 file"
+[master (root-commit) ff5ebf1] menambahkan 2 file
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+ create mode 100644 style.css
+
+rizqi@DESKTOP-P4K04E5 MINGW64 ~/Desktop/coba-git-ignore (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 231 bytes | 77.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/riczky/coba-git-ignore.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
